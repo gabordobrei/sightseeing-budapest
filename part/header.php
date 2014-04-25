@@ -18,7 +18,6 @@
 		
 		<script type="text/javascript" src="../js/bubbles.js"></script>
 		
-		
 	</head>
 	<body>
 		<!-- a menü-->

@@ -7,7 +7,10 @@
 	} else {
 		$obj = 'parlament';
 	}
-	
+	if(empty($_SERVER['db'])){
+		$db = new PDO('mysql:host=localhost;dbname=mer;charset=utf8', 'webuser', 'budapest');
+		$_SERVER['db'] = 'a';
+	}
 
 	/* sql query -> $result */
 	
@@ -16,31 +19,31 @@
 				'img_src' => 'http://placehold.it/1600x900',
 				'title' => 'elso',
 				'author' => '@elso_auth',
-				'link_id' => '1_link_id',
+				'link_id' => '31',
 			),
 			array(
 				'img_src' => 'http://placehold.it/1601x901',
 				'title' => 'ketto',
 				'author' => '@ketto_auth',
-				'link_id' => '2_link_id',
+				'link_id' => '32',
 			),
 			array(
 				'img_src' => 'http://placehold.it/1602x902',
 				'title' => 'harom',
 				'author' => '@harom_auth',
-				'link_id' => '3_link_id',
+				'link_id' => '33',
 			),
 			array(
 				'img_src' => 'http://placehold.it/1603x903',
 				'title' => 'negy',
 				'author' => '@negy_auth',
-				'link_id' => '4_link_id',
+				'link_id' => '34',
 			),
 			array(
 				'img_src' => 'http://placehold.it/1604x904',
 				'title' => 'ot',
 				'author' => '@ot_auth',
-				'link_id' => '5_link_id',
+				'link_id' => '35',
 			),
 		);
 	//var_dump($result);
@@ -70,8 +73,9 @@
 			
 			<div class="row">
 				<?php
-					
-					foreach(array_slice($result,1) as &$val){
+					$a = array();
+					$a = array_slice($result,1);
+					foreach($a as &$val){
 						echo '<a href="../tour/index.php?link_id=' . $val['link_id'] . '">'
 								. '<div class="col-md-4">'
 									. '<div class="panel panel-default transparent">'

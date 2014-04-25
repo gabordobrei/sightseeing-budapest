@@ -34,11 +34,16 @@
 				</div>
 			
 		</div>
-
-		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"/>
-		<script type="text/javascript" src="../js/bootstrap.js"/>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/bootstrap.js"></script>
 		<script type="text/javascript">
-			$(function () { $("[data-toggle='tooltip']").tooltip(); });
+			videocontent.addEventListener("canplay", function () {
+			    <?php if(!empty($elso['start_time'])) echo 'videoContent.jump(' . $elso['start_time'] . ');'; ?>
+			}, false);
+			
+			$(document).ready(function(){
+				$("[data-toggle='tooltip']").tooltip();
+			});
 		</script>
 	</body>
 </html>
