@@ -36,14 +36,71 @@
 		</div>
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script type="text/javascript" src="../js/bootstrap.js"></script>
+		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 		<script type="text/javascript">
-			videocontent.addEventListener("loadedmetadata", function () {
-			    <?php if(!empty($elso['start_time'])) echo 'videoContent.jump(' . $elso['start_time'] . ');'; ?>
-			}, false);
 			
-			$(document).ready(function(){
+		    <?php if(!empty($elso['start_time']))
+		    	echo 'videocontent.addEventListener("loadedmetadata", function () {'
+		    		. 'videoContent.jump(' . $elso['start_time'] . ');'
+				. '}, false);'; ?>
+			
+			$(function() {
 				$("[data-toggle='tooltip']").tooltip();
+				var availableTags = [
+					"Parlament",
+					"Hősők tere",
+					"Erzsébet híd",
+					"Fővárosi Állat- és Növénykert",
+					"Dohány utcai zsinagóga",
+					"Széchenyi Lánchíd",
+					"Szent István-bazilika",
+					"Budai Vár",
+					"Gellért-hegy",
+					"Iparművészeti Múzeum",
+					"Citadella",
+					"Halászbástya",
+					"Mátyás templom",
+					"Belvárosi Ferences Templom",
+					"Szent István szobor",
+					"Széll Kálmán tér",
+					"Rákóczi híd",
+					"Országos Széchényi Könyvtár",
+					"Nyugati pályaudvar",
+					"Szabadság híd",
+					"Margit híd",
+					"Keleti pályaudvar",
+					"Szépművészeti múzeum",
+					"Hotel Gellért",
+					"Nemzeti múzeum",
+					"Vígszínház",
+					"Vajdahunyad vára",
+					"Műjégpálya",
+					"Bálna Budapest",
+					"Petőfi híd",
+					"Budapesti operaház",
+					"Margitszigeti szökőkút",
+					"Nemzeti Színház",	
+					"Budavári Sikló",
+					"Budai Váralagút",
+					"Vásárcsarnok",
+					"Szabadság-szobor",
+					"Széchenyi fürdő",
+					"Művészetek Palotája",
+					"Papp László Budapest Sportaréna",
+					"Déli pályaudvar"
+				];
+				$( "#search" ).autocomplete({
+					source: availableTags
+				});
+				
+				$( "#search_button" ).click(function(){
+					// Ami a search-ben van, azt használjuk
+					var q = $("#search").val();
+		
+					
+	
+				});
 			});
-		</script>
+	</script>
 	</body>
 </html>

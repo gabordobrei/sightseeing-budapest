@@ -40,83 +40,11 @@
 	$sql = "SELECT video.name as 'title', video.author as 'author', link.ID as 'link_id' "
 		. "FROM video, link, object "
 		. "WHERE link.object_ID = object.ID and link.video_ID = video.ID and object.ID = " . $elso['obj_id'] . " "
-		. "ORDER BY link.weight";	
+		. "ORDER BY 1/(((link.end-link.start)/video.length)*(link.width*link.height))";
 	$sidebar = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
 //echo "<pre>"; var_dump($sidebar);	echo "</pre>";
-	/*
-		$sidebar ==> ../part/asdf.php
-	
-		
-	$elso = array(
-		'video_src' => 'http://danii.jumper.hu/~mer/video/budapest1.mp4',
-		'title' => 'elso',
-		'author' => '@elso_auth',
-		'description' => '1 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim<br/> ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-	);
-	
-	$links = array(
-		array(
-			'dim_x' => '20', 'dim_y' => '60',
-			'pos_x' => '5', 'pos_y' => '10',
-			'config_x' => '5', 'config_y' => '16',
-			'obj_id_to' => '1', 'obj_title_to' => '1_title',
-		),
-		array(
-			'dim_x' => '30', 'dim_y' => '30',
-			'pos_x' => '13', 'pos_y' => '40',
-			'config_x' => '17', 'config_y' => '27',
-			'obj_id_to' => '2', 'obj_title_to' => '2_title',
-		),
-		array(
-			'dim_x' => '17', 'dim_y' => '40',
-			'pos_x' => '12', 'pos_y' => '30',
-			'config_x' => '64', 'config_y' => '69',
-			'obj_id_to' => '3', 'obj_title_to' => '3_title',
-		),
-		array(
-			'dim_x' => '3', 'dim_y' => '30',
-			'pos_x' => '15', 'pos_y' => '18',
-			'config_x' => '64', 'config_y' => '69',
-			'obj_id_to' => '', 'obj_title_to' => '',
-		),
-		array(
-			'dim_x' => '30', 'dim_y' => '30',
-			'pos_x' => '11', 'pos_y' => '40',
-			'config_x' => '115', 'config_y' => '430',
-			'obj_id_to' => '64', 'obj_title_to' => '69',
-		),
-
-	);
-	
-	$sidebar = array(
-		array(
-			'title' => 'elso',
-			'author' => '@elso_auth',
-			'link_id' => '1_link_id',
-		),
-		array(
-			'title' => 'ketto',
-			'author' => '@ketto_auth',
-			'link_id' => '2_link_id',
-		),
-		array(
-			'title' => 'harom',
-			'author' => '@harom_auth',
-			'link_id' => '3_link_id',
-		),
-		array(
-			'title' => 'negy',
-			'author' => '@negy_auth',
-			'link_id' => '4_link_id',
-		),
-		array(
-			'title' => 'ot',
-			'author' => '@ot_auth',
-			'link_id' => '5_link_id',
-		),
-	);
-	*/
+	/* $sidebar ==> ../part/asdf.php */
 	
 	include("../part/header.php");
 	
@@ -126,7 +54,7 @@
 				<div id="video" class="col-sm-6 col-md-8">
 					<div class="panel panel-default">
 						<!--video id="videocontent" width="640" height="360" controls="" class="col-centered"-->
-						<video id="videocontent" width="100%" height="100%" controls="" class="col-centered">
+						<video id="videocontent" width="100%" height="100%" controls="" class="col-centered" autoplay>
 							<source src="//danii.jumper.hu/~mer/<?php echo $elso['video_src'];?>" type="video/mp4" />
 						</video>
 					

@@ -7,6 +7,7 @@
 
 		<meta name = "viewport" content = "width = device-width initial-scale = 1.0"/>
 		
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 		<link rel = "stylesheet" type = "text/css" href = "../css/bubbles_styles.css" />
 		<link rel = "stylesheet" type = "text/css" href = "../css/bubbles.css" />
 		<link rel = "stylesheet" type = "text/css" href = "../css/bootstrap.min.css" />
@@ -16,19 +17,21 @@
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
 		
-		<script type="text/javascript" src="../js/bubbles.js"></script>
+		<script type="text/javascript" src="../js/bubbles.js"></script>		
 		
 	</head>
 	<body>
 		<!-- a menü-->
-		<div class = "navbar navbar-default navbar-fixed-top">
+		<div class = "navbar navbar-default">
 			<div class = "container">
 				<a href = "../home" class = "navbar-brand">Budapest nevezetességei videoportál</a>
-				<div class="input-group navbar-right col-md-7">
-					<input type="text" class="form-control" placeholder="Search..."></input>
-					<span class="input-group-btn">
-						<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> </button>
-					</span>
-				</div>
+				<form action="../home/index.php" method="post">
+					<div class="input-group navbar-right col-md-7">	
+						<input name="obj" id="search" type="text" class="form-control" placeholder="Search..."></input>
+						<span class="input-group-btn">
+							<button onClick="this.form.submit()" id="search_button" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+						</span>
+					</div>
+				</form>
 			</div>
 		</div>
