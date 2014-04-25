@@ -37,7 +37,7 @@
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script type="text/javascript" src="../js/bootstrap.js"></script>
 		<script type="text/javascript">
-			videocontent.addEventListener("canplay", function () {
+			videocontent.addEventListener("loadedmetadata", function () {
 			    <?php if(!empty($elso['start_time'])) echo 'videoContent.jump(' . $elso['start_time'] . ');'; ?>
 			}, false);
 			
