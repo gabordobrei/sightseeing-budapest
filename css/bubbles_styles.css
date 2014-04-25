@@ -1,0 +1,27 @@
+.bubblelink {
+	display: block;
+	width: 100%;
+	height: 100%;
+
+	cursor: pointer;
+}
+
+.editmode {
+	cursor: crosshair;
+}
+
+#selectedobject, #newobjectname {
+	/*width: 200px;*/
+}
+
+.info{
+	font-weight: bold;
+	background-color: #e6e6e6;
+	padding: 2px;
+	margin-bottom: 5px;
+}
+
+.missingattr {
+	background-color: #f5a9a9;
+}
+

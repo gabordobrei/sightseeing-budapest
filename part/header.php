@@ -7,12 +7,18 @@
 
 		<meta name = "viewport" content = "width = device-width initial-scale = 1.0"/>
 		
+		<link rel = "stylesheet" type = "text/css" href = "../css/bubbles_styles.css" />
+		<link rel = "stylesheet" type = "text/css" href = "../css/bubbles.css" />
 		<link rel = "stylesheet" type = "text/css" href = "../css/bootstrap.min.css" />
 		<link rel = "stylesheet" type = "text/css" href = "../css/styles.css" />
 		<!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
+		
+		<script type="text/javascript" src="../js/bubbles.js"></script>
+		
+		
 	</head>
 	<body>
 		<!-- a menü-->
